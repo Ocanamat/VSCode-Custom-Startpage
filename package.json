@@ -11,6 +11,10 @@
   "license": "ISC",
   "type": "commonjs",
   "publisher": "ocanamat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ocanamat/VSCode-Custom-Startpage.git"
+  },
   "categories": [
     "Other"
   ],
