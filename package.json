@@ -1,0 +1,59 @@
+{
+  "name": "vscode-custom-startpage",
+  "displayName": "VSCoode Custom Start Page",
+  "description": "Opens a custom web page in a VS Code webview on startup.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "publisher": "ocanamat",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:customStartPage.open"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "customStartPage.open",
+        "title": "Custom Start Page: Open"
+      }
+    ],
+    "configuration": {
+      "title": "Custom Start Page",
+      "properties": {
+        "customStartPage.url": {
+          "type": "string",
+          "default": "https://example.com",
+          "description": "Remote URL to load inside the start page webview."
+        },
+        "customStartPage.openWhen": {
+          "type": "string",
+          "enum": [
+            "always",
+            "workspace"
+          ],
+          "default": "always",
+          "description": "Open on every window or only when a workspace is opened."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0",
+    "vsce": "^2.24.0"
+  }
+}
